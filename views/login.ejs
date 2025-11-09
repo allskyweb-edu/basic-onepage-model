@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1"
+		/>
+		<title>Connexion</title>
+		<link
+			rel="stylesheet"
+			href="/assets/css/styles.css"
+		/>
+	</head>
+	<body>
+		<%- include('partials/header', { user: null }) %>
+		<main class="container">
+			<h2>Connexion</h2>
+			<% if (error) { %>
+			<p style="color: crimson"><%= error %></p>
+			<% } %>
+			<form
+				method="POST"
+				action="/auth/login"
+			>
+				<div class="form-row">
+					<label
+						>Utilisateur<input
+							name="username"
+							required
+					/></label>
+				</div>
+				<div class="form-row">
+					<label
+						>Mot de passe<input
+							type="password"
+							name="password"
+							required
+					/></label>
+				</div>
+				<div class="form-row">
+					<button
+						class="btn"
+						type="submit"
+					>
+						Se connecter
+					</button>
+				</div>
+			</form>
+			<p><a href="/">← Retour</a></p>
+		</main>
+
+		<%- include('partials/footer') %>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<header class="site-header">
+	<div class="container header-inner">
+		<div class="brand">
+			<div
+				class="logo-placeholder"
+				aria-hidden="true"
+			>
+				LOGO
+			</div>
+			<h1 class="site-title">Prénom Nom</h1>
+		</div>
+		<nav class="site-nav">
+			<a href="/">Accueil</a>
+			<a href="/kanban">Kanban</a>
+		</nav>
+
+		<div
+			style="margin-left: auto; display: flex; gap: 0.5rem; align-items: center"
+		>
+			<% if (typeof user !== 'undefined' && user) { %>
+			<span
+				style="color: var(--muted); font-size: 0.95rem; margin-right: 0.5rem"
+				>Bonjour <%= user.username %></span
+			>
+			<a
+				href="/auth/logout"
+				class="btn btn-ghost"
+				>Déconnexion</a
+			>
+			<% } else { %>
+			<a
+				href="/auth/login"
+				class="btn btn-ghost"
+				>Connexion</a
+			>
+			<% } %>
+		</div>
+	</div>
+</header>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1"
+		/>
+		<title>Portfolio — One Page</title>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="assets/css/styles.css"
+		/>
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<div class="brand">
+					<div
+						class="logo-placeholder"
+						aria-hidden="true"
+					>
+						LOGO
+					</div>
+					<h1 class="site-title">Prénom Nom</h1>
+				</div>
+
+				<button
+					class="nav-toggle"
+					aria-label="Ouvrir le menu"
+					aria-expanded="false"
+				>
+					☰
+				</button>
+
+				<nav
+					class="site-nav"
+					id="site-nav"
+				>
+					<a href="#hero">Accueil</a>
+					<a href="#services">Services</a>
+					<a href="#portfolio">Portfolio</a>
+					<a href="#contact">Contact</a>
+					<a href="/kanban">Kanban</a>
+				</nav>
+
+				<button
+					id="theme-toggle"
+					class="theme-toggle"
+					aria-pressed="false"
+					title="Basculer le thème"
+				>
+					🌙
+				</button>
+			</div>
+		</header>
+
+		<main>
+			<section
+				id="hero"
+				class="hero"
+			>
+				<div class="container">
+					<div class="hero-card">
+						<h2>Bonjour — je suis développeur·se & designer</h2>
+						<p>
+							Je crée des interfaces modernes, rapides et accessibles. Voici
+							quelques projets récents.
+						</p>
+						<div class="hero-cta">
+							<a
+								href="#portfolio"
+								class="btn"
+								>Voir le portfolio</a
+							>
+							<a
+								href="#contact"
+								class="btn btn-ghost"
+								>Contactez-moi</a
+							>
+						</div>
+					</div>
+					<div class="hero-visual">
+						<div
+							class="img-placeholder"
+							aria-hidden="true"
+						>
+							Image
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section
+				id="services"
+				class="services"
+			>
+				<div class="container">
+					<h3>Services</h3>
+					<p class="lede">
+						Design produit, développement front-end, optimisation de
+						performance.
+					</p>
+					<div class="cards">
+						<article class="card">
+							<div class="icon">🎯</div>
+							<h4>Design UI/UX</h4>
+							<p>
+								Prototypes, design system, et interfaces orientées utilisateur.
+							</p>
+						</article>
+						<article class="card">
+							<div class="icon">💻</div>
+							<h4>Développement Front-end</h4>
+							<p>
+								HTML, CSS moderne et JavaScript optimisé pour la production.
+							</p>
+						</article>
+						<article class="card">
+							<div class="icon">⚡</div>
+							<h4>Performance & SEO</h4>
+							<p>
+								Optimisation des temps de chargement et bonnes pratiques SEO
+								techniques.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section
+				id="portfolio"
+				class="portfolio"
+			>
+				<div class="container">
+					<h3>Portfolio</h3>
+					<p class="lede">
+						Quelques projets sélectionnés — cliquez pour voir plus.
+					</p>
+					<div class="grid">
+						<div class="proj">
+							<div class="img-placeholder">Projet 1</div>
+							<h4>Nom du projet 1</h4>
+							<p class="muted">Description courte du projet.</p>
+						</div>
+						<div class="proj">
+							<div class="img-placeholder">Projet 2</div>
+							<h4>Nom du projet 2</h4>
+							<p class="muted">Description courte du projet.</p>
+						</div>
+						<div class="proj">
+							<div class="img-placeholder">Projet 3</div>
+							<h4>Nom du projet 3</h4>
+							<p class="muted">Description courte du projet.</p>
+						</div>
+						<div class="proj">
+							<div class="img-placeholder">Projet 4</div>
+							<h4>Nom du projet 4</h4>
+							<p class="muted">Description courte du projet.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section
+				id="contact"
+				class="contact"
+			>
+				<div class="container">
+					<h3>Contact</h3>
+					<p class="lede">
+						Envoyez-moi un message — je réponds sous 48 heures.
+					</p>
+					<form
+						id="contact-form"
+						class="contact-form"
+						novalidate
+					>
+						<div class="form-row">
+							<label for="name">Nom</label>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								required
+							/>
+						</div>
+						<div class="form-row">
+							<label for="email">Email</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								required
+							/>
+						</div>
+						<div class="form-row">
+							<label for="message">Message</label>
+							<textarea
+								id="message"
+								name="message"
+								rows="5"
+								required
+							></textarea>
+						</div>
+						<div class="form-actions">
+							<button
+								type="submit"
+								class="btn"
+							>
+								Envoyer
+							</button>
+							<div
+								id="form-msg"
+								class="form-msg"
+								aria-live="polite"
+							></div>
+						</div>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<!-- Inline login modal for quick auth when clicking Kanban -->
+		<div
+			id="inline-login-modal"
+			class="modal"
+			role="dialog"
+			aria-modal="true"
+		>
+			<div class="modal-panel">
+				<h3>Connexion requise</h3>
+				<form id="inline-login-form">
+					<div class="form-row">
+						<label
+							>Utilisateur<input
+								name="username"
+								required
+						/></label>
+					</div>
+					<div class="form-row">
+						<label
+							>Mot de passe<input
+								type="password"
+								name="password"
+								required
+						/></label>
+					</div>
+					<div class="modal-actions">
+						<button
+							type="button"
+							class="btn btn-ghost"
+							id="inline-login-cancel"
+						>
+							Annuler
+						</button>
+						<button
+							type="submit"
+							class="btn"
+						>
+							Se connecter
+						</button>
+					</div>
+				</form>
+				<div
+					id="inline-login-error"
+					style="color: crimson; margin-top: 0.5rem; display: none"
+				></div>
+			</div>
+		</div>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>© <span id="year"></span> Prénom Nom — Tous droits réservés</p>
+				<nav
+					class="footer-nav"
+					aria-label="Pied de page"
+				>
+					<a href="#hero">Accueil</a>
+					<a href="#portfolio">Portfolio</a>
+					<a href="#contact">Contact</a>
+					<a href="/kanban">Kanban</a>
+					<a href="pages/plan-du-site.html">Plan du site</a>
+					<a href="pages/mentions-legales.html">Mentions légales</a>
+				</nav>
+			</div>
+		</footer>
+
+		<script src="assets/js/script.js"></script>
+	</body>
+</html>

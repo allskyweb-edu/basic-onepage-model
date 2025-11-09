@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1"
+		/>
+		<title>Kanban — Plan de travail</title>
+		<link
+			rel="stylesheet"
+			href="../assets/css/styles.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="../assets/css/kanban.css"
+		/>
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<div class="brand">
+					<div
+						class="logo-placeholder"
+						aria-hidden="true"
+					>
+						LOGO
+					</div>
+					<h1 class="site-title">Kanban</h1>
+				</div>
+				<div class="k-actions">
+					<a
+						href="../index.html"
+						class="btn btn-ghost"
+						>← Retour</a
+					>
+				</div>
+			</div>
+		</header>
+
+		<main class="k-container">
+			<div class="k-top">
+				<h2>Tableau de tâches</h2>
+				<div class="k-actions">
+					<button
+						id="btn-add"
+						class="btn"
+					>
+						Ajouter une tâche
+					</button>
+					<button
+						id="btn-export"
+						class="btn btn-ghost"
+					>
+						Exporter JSON
+					</button>
+					<button
+						id="btn-import-trigger"
+						class="btn btn-ghost"
+					>
+						Importer JSON
+					</button>
+					<input
+						id="file-import"
+						type="file"
+						accept="application/json"
+						class="file-input"
+					/>
+				</div>
+			</div>
+
+			<div class="k-board">
+				<section
+					id="col-todo"
+					class="column"
+					aria-label="À faire"
+				>
+					<div class="col-title">
+						<strong>À faire</strong> <span class="col-count"></span>
+					</div>
+					<div class="cards-list"></div>
+				</section>
+				<section
+					id="col-doing"
+					class="column"
+					aria-label="En cours"
+				>
+					<div class="col-title">
+						<strong>En cours</strong> <span class="col-count"></span>
+					</div>
+					<div class="cards-list"></div>
+				</section>
+				<section
+					id="col-done"
+					class="column"
+					aria-label="Terminé"
+				>
+					<div class="col-title">
+						<strong>Terminé</strong> <span class="col-count"></span>
+					</div>
+					<div class="cards-list"></div>
+				</section>
+			</div>
+		</main>
+
+		<!-- Add Modal -->
+		<div
+			id="modal-add"
+			class="modal"
+			role="dialog"
+			aria-modal="true"
+		>
+			<div class="modal-panel">
+				<h3>Ajouter une tâche</h3>
+				<form id="add-form">
+					<div class="form-row">
+						<label
+							>Titre<input
+								name="title"
+								required
+						/></label>
+					</div>
+					<div class="form-row">
+						<label
+							>Description<textarea
+								name="description"
+								rows="4"
+							></textarea>
+						</label>
+					</div>
+					<div class="modal-actions">
+						<button
+							type="button"
+							class="btn btn-ghost"
+							onclick="closeAddModal()"
+						>
+							Annuler
+						</button>
+						<button
+							type="submit"
+							class="btn"
+						>
+							Ajouter
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Edit Modal -->
+		<div
+			id="modal-edit"
+			class="modal"
+			role="dialog"
+			aria-modal="true"
+		>
+			<div class="modal-panel">
+				<h3>Modifier la tâche</h3>
+				<form id="edit-form">
+					<input
+						type="hidden"
+						name="id"
+					/>
+					<div class="form-row">
+						<label
+							>Titre<input
+								name="title"
+								required
+						/></label>
+					</div>
+					<div class="form-row">
+						<label
+							>Description<textarea
+								name="description"
+								rows="4"
+							></textarea>
+						</label>
+					</div>
+					<div class="form-row">
+						<label
+							>Statut<select name="status">
+								<option value="todo">À faire</option>
+								<option value="doing">En cours</option>
+								<option value="done">Terminé</option>
+							</select></label
+						>
+					</div>
+					<div class="modal-actions">
+						<button
+							type="button"
+							class="btn btn-ghost"
+							onclick="openDeleteModal(document.getElementById('edit-form').elements['id'].value)"
+						>
+							Supprimer
+						</button>
+						<button
+							type="button"
+							class="btn btn-ghost"
+							onclick="closeEditModal()"
+						>
+							Annuler
+						</button>
+						<button
+							type="submit"
+							class="btn"
+						>
+							Sauvegarder
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Delete Modal -->
+		<div
+			id="modal-delete"
+			class="modal"
+			role="dialog"
+			aria-modal="true"
+		>
+			<div class="modal-panel">
+				<h3>Supprimer la tâche ?</h3>
+				<form id="delete-form">
+					<input
+						type="hidden"
+						id="del-id"
+					/>
+					<p>Cette action est irréversible.</p>
+					<div class="modal-actions">
+						<button
+							type="button"
+							class="btn btn-ghost"
+							onclick="closeDeleteModal()"
+						>
+							Annuler
+						</button>
+						<button
+							type="submit"
+							class="btn"
+						>
+							Supprimer
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="../assets/js/script.js"></script>
+		<script src="../assets/js/kanban.js"></script>
+	</body>
+</html>
