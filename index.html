@@ -265,15 +265,22 @@
 							class="btn btn-ghost"
 							id="inline-login-cancel"
 						>
-							Annuler
+							Fermer
 						</button>
 						<button
-							type="submit"
+							type="button"
 							class="btn"
+							disabled
 						>
-							Se connecter
+							Connexion désactivée
 						</button>
 					</div>
+					<p
+						id="inline-login-disabled"
+						style="color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem"
+					>
+						La connexion est désactivée sur cette instance.
+					</p>
 				</form>
 				<div
 					id="inline-login-error"

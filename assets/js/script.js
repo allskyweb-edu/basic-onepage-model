@@ -101,9 +101,14 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 		// store previously focused element to restore later
 		_previousActive = document.activeElement;
 		modal.style.display = "flex";
-		// focus first input
-		const first = modal.querySelector("input[name]");
-		first && first.focus();
+		// focus first enabled input or the cancel button when inputs are disabled
+		const first = modal.querySelector("input[name]:not([disabled])");
+		if (first) {
+			first.focus();
+		} else {
+			const cancelBtn = modal.querySelector("#inline-login-cancel");
+			if (cancelBtn) cancelBtn.focus();
+		}
 		// attach escape handler
 		document.addEventListener("keydown", _escHandler);
 	}
@@ -207,6 +212,8 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 		form.addEventListener("submit", async (ev) => {
 			ev.preventDefault();
 			if (!form) return;
+			// if inputs are disabled (login disabled), do nothing
+			if (form.querySelector("input[disabled]")) return;
 			const data = new FormData(form);
 			const payload = {
 				username: data.get("username"),

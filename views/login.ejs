@@ -19,35 +19,11 @@
 			<% if (error) { %>
 			<p style="color: crimson"><%= error %></p>
 			<% } %>
-			<form
-				method="POST"
-				action="/auth/login"
-			>
-				<div class="form-row">
-					<label
-						>Utilisateur<input
-							name="username"
-							required
-					/></label>
-				</div>
-				<div class="form-row">
-					<label
-						>Mot de passe<input
-							type="password"
-							name="password"
-							required
-					/></label>
-				</div>
-				<div class="form-row">
-					<button
-						class="btn"
-						type="submit"
-					>
-						Se connecter
-					</button>
-				</div>
-			</form>
 			<p><a href="/">← Retour</a></p>
+			<p style="color: var(--muted)">
+				La connexion est désactivée sur cette instance. Contactez
+				l'administrateur si nécessaire.
+			</p>
 		</main>
 
 		<%- include('partials/footer') %>
